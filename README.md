@@ -8,19 +8,18 @@
 - [Python Scripts](#Python-Scripts)
 - [Python Test Cases](#Python-Unit-Tests)
 - [Mandatory Tasks](#Mandatory-Tasks)
+- [Compilation/installation](#Compilation/installation)
+- [Examples](#Examples)
+- [Testing](#Testing)
 
 ## Objectives
 
-- How to create a Python package
-- How to create a command interpreter in Python using the cmd module
-- What is Unit testing and how to implement it in a large project
-- How to serialize and deserialize a Class
-- How to write and read a JSON file
-- How to manage datetime
-- What is an UUID
-- What is *args and how to use it
-- What is **kwargs and how to use it
-- How to handle named arguments in a function
+* Learning Objectives
+  * Serialization / Deserialization flow (object <-> Dict <-> Json <-> file)
+  * Packages / Modules / Cyclical imports / How to import / Prevent execution /Etc.
+  * Layered architecture
+  * Interfaces (storage)
+  * Abstract Classes (BaseClass)
 
 ## Description
 
@@ -153,4 +152,4 @@ All tests should also pass in non-interactive mode: `$ echo "python3 -m unittest
 
 Julie Dedieu <julie.dedieu1@gmail.com>  
 Ken Kersy Ndayishimiye <ndayishimiyeken22@gmail.com>  
-Yassine Daoui <yassine.daoui@holbertonstudents.com>
+Yassine Daoui <yassine.daoui031@gmail.com>
