@@ -11,6 +11,7 @@
 - [Compilation/installation](#Compilation/installation)
 - [Examples](#Examples)
 - [Testing](#Testing)
+- [Authors](#Authors)
 
 ## Objectives
 
@@ -148,7 +149,13 @@ All tests should also pass in non-interactive mode: `$ echo "python3 -m unittest
 
 ### Task 10. Console 1.0 
 
-## Author
+## Compilation/installation
+
+## Examples
+
+## Testing
+
+## Authors
 
 Julie Dedieu <julie.dedieu1@gmail.com>  
 Ken Kersy Ndayishimiye <ndayishimiyeken22@gmail.com>  
