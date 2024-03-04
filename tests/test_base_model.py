@@ -34,4 +34,5 @@ class TestBaseModel(unittest.TestCase):
 
     def test_to_dict(self):
         """Test BaseModel to_dict module"""
+        self.bm1.to_dict()
         self.assertIsInstance(self.bm1.__dict__, dict)
