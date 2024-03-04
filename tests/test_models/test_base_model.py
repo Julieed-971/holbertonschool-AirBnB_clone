@@ -2,38 +2,41 @@
 """Unittests for -Airbnb clone - the console- project"""
 
 import unittest
+import uuid
+import datetime
+
 from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
     """Test the Base class"""
-    bm1 = BaseModel()
-    bm2 = BaseModel()
-
     def test_save(self):
-        """Test if updated_at is updated"""
-        self.bm1.save()
-        self.assertNotEqual(self.bm1.created_at, self.bm1.updated_at)
+        """Test if updated_at is updated with save()"""
+        my_model = BaseModel()
+        my_model.save()
+        self.assertNotEqual(my_model.created_at, my_model.updated_at)
 
     def test_to_dict(self):
         """Test BaseModel to_dict module"""
-        self.bm1.to_dict()
-        self.assertIsInstance(self.bm1.__dict__, dict)
+        my_model = BaseModel()
+        my_model.name = "My First Model"
+        my_model.my_number = 89
+        my_model_json = my_model.to_dict()
+        self.assertEqual(my_model_json["id"], my_model.id)
 
-    def __str__(self):
+    def test__str__(self):
         """Test if __str__ format is correct"""
-        self.assertIsInstance(self.bm1.__str__, "[BaseModel] ({}) {}".format(self.id, self.__dict__))
+        my_model = BaseModel()
+        my_model.name = "My First Model"
+        my_model.my_number = 89
+        self.assertEqual(str(my_model), "[BaseModel] ({}) {}".format(my_model.id, my_model.__dict__))
 
     def test__init__(self):
-        """Test BaseModel uuid"""
-        # 
-        self.assertIsInstance(self.bm1, BaseModel)
-        self.assertTrue(hasattr(self.bm1, "id"))
-        self.assertNotEqual(self.bm1.id, self.bm2.id)
-        self.assertIsInstance(self.bm1.id, str)
+        """Test BaseModel instantiation"""
+        my_model = BaseModel()
+        self.assertIsInstance(my_model, BaseModel)
+        self.assertIsInstance(my_model.created_at, datetime.datetime)
+        self.assertIsInstance(my_model.updated_at, datetime.datetime)
 
-        """Test BaseModel created_at time"""
-        self.assertTrue(hasattr(self.bm1, "created_at"))
-
-        """Test BaseModel updated_at time"""
-        self.assertTrue(hasattr(self.bm1, "updated_at"))
+if __name__ == "__main__":
+    unittest.main()
