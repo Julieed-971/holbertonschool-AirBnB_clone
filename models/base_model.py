@@ -19,7 +19,6 @@ class BaseModel():
                 if key == 'updated_at':
                     self.updated_at = datetime.strptime(value,
                                                         '%Y-%m-%dT%H:%M:%S.%f')
-
         else:
             self.id = str(uuid4())
             self.created_at = datetime.utcnow()
