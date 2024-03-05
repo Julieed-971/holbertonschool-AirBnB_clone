@@ -7,8 +7,15 @@ from datetime import datetime
 class BaseModel():
     """Base class for all other classes to inherit from"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Method to instantiate an instance of BaseModel"""
+        if kwargs is not None:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'created_at' in kwargs:
+                self.created_at = datetime.strptime(kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+            if 'updated_at' in kwargs:
+                self.updated_at = datetime.strptime(kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
         self.id = str(uuid4())
         self.created_at = datetime.utcnow()
         self.updated_at = datetime.utcnow()
