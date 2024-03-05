@@ -9,18 +9,19 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """Method to instantiate an instance of BaseModel"""
-        if kwargs is not None:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'created_at' in kwargs:
-                self.created_at = datetime.strptime(kwargs['created_at'],
-                                                    '%Y-%m-%dT%H:%M:%S.%f')
-            if 'updated_at' in kwargs:
-                self.updated_at = datetime.strptime(kwargs['updated_at'],
-                                                    '%Y-%m-%dT%H:%M:%S.%f')
-        self.id = str(uuid4())
-        self.created_at = datetime.utcnow()
-        self.updated_at = datetime.utcnow()
+        if kwargs:
+            for key, value in kwargs.items():
+                if key != '__class__':
+                    setattr(self, key, value)
+                if key == 'created_at':
+                    self.created_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                if key == 'updated_at':
+                    self.updated_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+                
+        else:
+            self.id = str(uuid4())
+            self.created_at = datetime.utcnow()
+            self.updated_at = datetime.utcnow()
 
     def __str__(self):
         """Return the class description"""
