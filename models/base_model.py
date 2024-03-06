@@ -2,7 +2,7 @@
 """Base class for all the other classes to inherit from"""
 from uuid import uuid4
 from datetime import datetime
-from models.__init__ import storage
+from models import storage
 
 
 class BaseModel():
@@ -33,7 +33,7 @@ class BaseModel():
     def save(self):
         """Update attribute updated_at with the current datetime"""
         self.updated_at = datetime.utcnow()
-        storage.save(self)
+        storage.save()
 
     def to_dict(self):
         """Return a dictionary containing all keys/values of __dict__"""
