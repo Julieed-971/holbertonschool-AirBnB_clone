@@ -1,12 +1,12 @@
 #!/usr/bin/python3
+"""
+Console module for the HBNB project.
+"""
 
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
-    """
-    Console module for the HBNB project.
-    """
 
     prompt = '(hbnb) '
 
