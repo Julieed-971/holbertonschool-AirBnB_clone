@@ -2,7 +2,7 @@
 """FileStorage class module"""
 
 import json
-
+import os
 
 class FileStorage():
     """Creates a file storage class"""
@@ -32,18 +32,25 @@ class FileStorage():
         """Deserializes the JSON file to __objects if only it exists"""
         from models import base_model
 
+        # Dictionary mapping class names to their corresponding module
         dict_module = {'BaseModel': base_model}
-        with open(FileStorage.__file_path, "r") as f:
-            loaded_storage = json.load(f)
 
-        # Iterate through loaded storage to get the attributes list
-        for key, dict_attr in loaded_storage.items():
-            # Get the class name
-            class_name = dict_attr['__class__']
-            # Retrieve the corresponding module
-            if class_name in dict_module:
-                get_module = dict_module[class_name]
-                # Create instance of the class
+        # Load the contents of the JSON file into loaded_storage
+        if os.path.exists(FileStorage.__file_path):
+            with open(FileStorage.__file_path, "r") as f:
+                loaded_storage = json.load(f)
+
+            # Iterate through loaded storage to get the attributes list
+            for key, dict_attr in loaded_storage.items():
+                # Get the class name
+                class_name = dict_attr['__class__']
+
+                # Retrieve the corresponding module
+                if class_name in dict_module:
+                    get_module = dict_module[class_name]
+
+                # Retrieve the class object corresponding to the class name from the module
                 new_model = getattr(get_module, class_name)
-            # Create class type object from dictionary extracted from JSON file
-            self.__objects[key] = new_model(**dict_attr)
+
+                # Instantiate the class object with attributes extracted from the JSON data and store the instance in __objects
+                self.__objects[key] = new_model(**dict_attr)
