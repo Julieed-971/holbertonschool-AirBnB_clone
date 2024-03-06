@@ -8,22 +8,14 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Method to instantiate an instance of BaseModel"""
         if kwargs:
-            for key, value in kwargs.items():
-                if key != '__class__':
-                    setattr(self, key, value)
-                if key == 'created_at':
-                    self.created_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                if key == 'updated_at':
-                    self.updated_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+            self.id = kwargs.get('id', str(uuid4()))
+            self.created_at = datetime.strptime(kwargs.get('created_at', datetime.utcnow().isoformat()), '%Y-%m-%dT%H:%M:%S.%f')
+            self.updated_at = datetime.strptime(kwargs.get('updated_at', datetime.utcnow().isoformat()), '%Y-%m-%dT%H:%M:%S.%f')
         else:
             self.id = str(uuid4())
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             storage.new(self)
-
-    def __str__(self):
-        """Return the class description"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update attribute updated_at with the current datetime"""
