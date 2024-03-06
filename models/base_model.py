@@ -1,11 +1,8 @@
-#!/usr/bin/python3
-"""Base class for all the other classes to inherit from"""
-from uuid import uuid4
 from datetime import datetime
+from uuid import uuid4
 from models import storage
 
-
-class BaseModel():
+class BaseModel:
     """Base class for all other classes to inherit from"""
 
     def __init__(self, *args, **kwargs):
@@ -15,20 +12,14 @@ class BaseModel():
                 if key != '__class__':
                     setattr(self, key, value)
                 if key == 'created_at':
-                    self.created_at = datetime.strptime(value,
-                                                        '%Y-%m-%dT%H:%M:%S.%f')
+                    self.created_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 if key == 'updated_at':
-                    self.updated_at = datetime.strptime(value,
-                                                        '%Y-%m-%dT%H:%M:%S.%f')
+                    self.updated_at = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
         else:
             self.id = str(uuid4())
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             storage.new(self)
-
-    def __str__(self):
-        """Return the class description"""
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """Update attribute updated_at with the current datetime"""
