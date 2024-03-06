@@ -37,8 +37,7 @@ class BaseModel():
 
     def to_dict(self):
         """Return a dictionary containing all keys/values of __dict__"""
-        dict_cpy = self.__dict__
-        dict_cpy["__class__"] = 'BaseModel'
-        dict_cpy["created_at"] = self.created_at.isoformat()
-        dict_cpy["updated_at"] = self.updated_at.isoformat()
-        return dict_cpy
+        self.__dict__["__class__"] = 'BaseModel'
+        self.__dict__["created_at"] = self.created_at.isoformat()
+        self.__dict__["updated_at"] = self.updated_at.isoformat()
+        return self.__dict__
