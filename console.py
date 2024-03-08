@@ -8,6 +8,7 @@ from models.engine.file_storage import FileStorage
 
 storage = FileStorage()
 
+
 class HBNBCommand(cmd.Cmd):
     """Class for the console module"""
     prompt = '(hbnb) '
@@ -108,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         arg_name = arg.split()
-        
+
         if arg_name[0] not in dict_module:
             print("** class doesn't exist **")
             return
