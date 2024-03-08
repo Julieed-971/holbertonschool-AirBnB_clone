@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Console module for the HBNB project.
-"""
+"""Console module for the HBNB project."""
 
 import cmd
 
@@ -51,9 +49,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         else:
-            # retrieve the instance from storage with class_name.id
             key = f"{cls_name[0]}.{cls_name[1]}"
-            # if instance found, print string representation with __str__
             if key not in storage.all():
                 print("** no instance found **")
                 return
@@ -77,9 +73,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        # retrieve the instance from storage with class_name.id
         key = f"{cls_name[0]}.{cls_name[1]}"
-        # if instance found, print string representation with __str__
         if key not in storage.all():
             print("** no instance found **")
             return
@@ -89,7 +83,6 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representation of all instances"""
-        # Find the base case
         cls_name = arg.split()
         if len(cls_name) == 1:
             if cls_name[0] not in dict_module:
@@ -136,12 +129,8 @@ class HBNBCommand(cmd.Cmd):
             inst_attr = arg_name[2]
             inst_attr_value = arg_name[3]
 
-            # attribute_dict = loaded_storage[key]
-            # print(attribute_dict)
-            # attribute_dict[inst_attr] = inst_attr_value
             setattr(storage.all()[key], inst_attr, inst_attr_value)
             storage.save()
-            
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
