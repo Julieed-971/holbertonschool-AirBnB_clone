@@ -34,11 +34,20 @@ class FileStorage():
         from models import base_model
         from models import user
         from models import state
+        from models import city
+        from models import amenity
+        from models import place
+        from models import review
 
         global dict_module
         dict_module = {'BaseModel': base_model,
                        'User': user,
-                       'State': state}
+                       'State': state,
+                       'City': city,
+                       'Amenity': amenity, 
+                       'Place': place,
+                       'Review': review
+                       }
 
         if os.path.exists(self.__file_path):
             with open(self.__file_path, "r") as f:
