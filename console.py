@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         """
-
+        from models.engine.file_storage import loaded_storage
         if not arg:
             print("** class name missing **")
             return
@@ -139,12 +139,12 @@ class HBNBCommand(cmd.Cmd):
             inst_attr = arg_name[2]
             inst_attr_value = arg_name[3]
 
-            attribute_dict = storage.all()[key]
-            if inst_attr in attribute_dict:
-                attribute_dict[inst_attr] = inst_attr_value
-            else:
-                attribute_dict[inst_attr] = inst_attr_value
-                storage.save
+            # attribute_dict = loaded_storage[key]
+            # print(attribute_dict)
+            # attribute_dict[inst_attr] = inst_attr_value
+            setattr(storage.all()[key], inst_attr, inst_attr_value)
+            storage.save()
+            
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
