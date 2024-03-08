@@ -4,7 +4,8 @@ Console module for the HBNB project.
 """
 
 import cmd
-
+import os
+import json
 from models import storage
 from models.engine.file_storage import dict_module
 
@@ -39,19 +40,19 @@ class HBNBCommand(cmd.Cmd):
             return
 
         else:
-            args = arg.split()
+            cls_name = arg.split()
 
-        if args[0] not in dict_module:
+        if cls_name[0] not in dict_module:
             print("** class doesn't exist **")
             return
 
-        if len(args) < 2:
+        if len(cls_name) < 2:
             print("** instance id missing **")
             return
 
         else:
-            cls_name = args[0]
-            inst_id = args[1]
+            cls_name = cls_name[0]
+            inst_id = cls_name[1]
             # retrieve the instance from storage with class_name.id
             key = f"{cls_name}.{inst_id}"
             # if instance found, print string representation with __str__
@@ -69,19 +70,19 @@ class HBNBCommand(cmd.Cmd):
             return
 
         else:
-            args = arg.split()
+            cls_name = arg.split()
 
-        if args[0] not in dict_module:
+        if cls_name[0] not in dict_module:
             print("** class doesn't exist **")
             return
 
-        if len(args) < 2:
+        if len(cls_name) < 2:
             print("** instance id missing **")
             return
 
         else:
-            cls_name = args[0]
-            inst_id = args[1]
+            cls_name = cls_name[0]
+            inst_id = cls_name[1]
             # retrieve the instance from storage with class_name.id
             key = f"{cls_name}.{inst_id}"
             # if instance found, print string representation with __str__
@@ -112,7 +113,52 @@ class HBNBCommand(cmd.Cmd):
             print(all_string)
 
     def do_update(self, arg):
-        pass
+        """
+        Updates an instance based on the class name and
+        id by adding or updating attribute
+        """
+        if os.path.exists("file.json"):
+            with open("file.json", "r") as f:
+                loaded_storage = json.load(f)
+
+        arg_name = arg.split()
+
+        if len(arg_name) == 0:
+            print("** class name missing **")
+            return
+        if len(arg_name) == 1:
+            if arg_name[0] not in dict_module:
+                print("** class doesn't exist **")
+                return
+            else:
+                print("** instance id missing **")
+                return
+        if len(arg_name) == 2:
+            key = f"{arg_name[0]}.{arg_name[1]}"
+            if key not in loaded_storage:
+                print("** no instance found **")
+                return
+            else:
+                print("** attribute name missing **")
+                return
+        if len(arg_name) == 3:
+            print("** value missing **")
+            return
+        else:
+            cls_name = arg_name[0]
+            inst_id = arg_name[1]
+            inst_attr = arg_name[2]
+            inst_attr_value = arg_name[3]
+
+            key = f"{cls_name}.{inst_id}"
+
+            if key in loaded_storage:
+                attribute_dict = loaded_storage[key]
+                if inst_attr in attribute_dict:
+                    attribute_dict[inst_attr] = inst_attr_value
+                else:
+                    attribute_dict[inst_attr] = inst_attr_value
+                    storage.save
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
