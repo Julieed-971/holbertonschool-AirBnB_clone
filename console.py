@@ -87,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
                 return
             else:
                 del storage.all()[key]
-                storage.save
+            storage.save
 
     def do_all(self, arg):
         """Prints all string representation of all instances"""
