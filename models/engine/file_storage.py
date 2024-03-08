@@ -34,6 +34,7 @@ class FileStorage():
         from models import base_model
 
         # Dictionary mapping class names to their corresponding module
+        global dict_module
         dict_module = {'BaseModel': base_model}
 
         # Load the contents of the JSON file into loaded_storage
@@ -54,8 +55,9 @@ class FileStorage():
                 # the class name from the module
                 new_model = getattr(get_module, class_name)
 
-                # Instantiate the class object with attributes 
-                # extracted from the JSON data and store the instance in __objects
+                # Instantiate the class object with attributes
+                # extracted from the JSON data and
+                # store the instance in __objects
                 FileStorage.__objects[key] = new_model(**dict_attr)
 
 
