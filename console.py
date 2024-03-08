@@ -6,9 +6,9 @@ Console module for the HBNB project.
 import cmd
 
 from models.engine.file_storage import dict_module
-from models.engine.file_storage import loaded_storage
-from models import storage
+from models.engine.file_storage import FileStorage
 
+storage = FileStorage()
 
 class HBNBCommand(cmd.Cmd):
     """Class for the console module"""
@@ -136,20 +136,15 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
         else:
-            cls_name = arg_name[0]
-            inst_id = arg_name[1]
             inst_attr = arg_name[2]
             inst_attr_value = arg_name[3]
 
-            key = f"{cls_name}.{inst_id}"
-
-            if key in loaded_storage:
-                attribute_dict = loaded_storage[key]
-                if inst_attr in attribute_dict:
-                    attribute_dict[inst_attr] = inst_attr_value
-                else:
-                    attribute_dict[inst_attr] = inst_attr_value
-                    storage.save
+            attribute_dict = storage.all()[key]
+            if inst_attr in attribute_dict:
+                attribute_dict[inst_attr] = inst_attr_value
+            else:
+                attribute_dict[inst_attr] = inst_attr_value
+                storage.save
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
