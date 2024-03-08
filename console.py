@@ -6,8 +6,9 @@ Console module for the HBNB project.
 import cmd
 import os
 import json
-from models import storage
+
 from models.engine.file_storage import dict_module
+from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
@@ -51,10 +52,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         else:
-            cls_name = cls_name[0]
-            inst_id = cls_name[1]
             # retrieve the instance from storage with class_name.id
-            key = f"{cls_name}.{inst_id}"
+            key = f"{cls_name[0]}.{cls_name[1]}"
             # if instance found, print string representation with __str__
             if key not in storage.all():
                 print("** no instance found **")
@@ -81,10 +80,8 @@ class HBNBCommand(cmd.Cmd):
             return
 
         else:
-            cls_name = cls_name[0]
-            inst_id = cls_name[1]
             # retrieve the instance from storage with class_name.id
-            key = f"{cls_name}.{inst_id}"
+            key = f"{cls_name[0]}.{cls_name[1]}"
             # if instance found, print string representation with __str__
             if key not in storage.all():
                 print("** no instance found **")
