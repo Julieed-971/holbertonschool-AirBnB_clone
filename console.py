@@ -8,6 +8,7 @@ import os
 import json
 
 from models.engine.file_storage import dict_module
+from models.engine.file_storage import loaded_storage
 from models import storage
 
 
@@ -114,31 +115,26 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         """
-        if os.path.exists("file.json"):
-            with open("file.json", "r") as f:
-                loaded_storage = json.load(f)
 
-        arg_name = arg.split()
-
-        if len(arg_name) == 0:
+        if not arg:
             print("** class name missing **")
             return
-        if len(arg_name) == 1:
-            if arg_name[0] not in dict_module:
-                print("** class doesn't exist **")
-                return
-            else:
-                print("** instance id missing **")
-                return
-        if len(arg_name) == 2:
-            key = f"{arg_name[0]}.{arg_name[1]}"
-            if key not in loaded_storage:
-                print("** no instance found **")
-                return
-            else:
-                print("** attribute name missing **")
-                return
-        if len(arg_name) == 3:
+        arg_name = arg.split()
+        
+        if arg_name[0] not in dict_module:
+            print("** class doesn't exist **")
+            return
+        if len(arg_name) < 2:
+            print("** instance id missing **")
+            return
+        key = f"{arg_name[0]}.{arg_name[1]}"
+        if key not in loaded_storage:
+            print("** no instance found **")
+            return
+        if len(arg_name) < 3:
+            print("** attribute name missing **")
+            return
+        if len(arg_name) < 4:
             print("** value missing **")
             return
         else:
