@@ -9,7 +9,7 @@ class User(BaseModel):
     def __init__(self, *args, **kwargs):
         """Instantiate a user instance"""
         super().__init__(*args, **kwargs)
-        self.email = ""
-        self.password = ""
-        self.first_name = ""
-        self.last_name = ""
+        self.email = str("")
+        self.password = str("")
+        self.first_name = str("")
+        self.last_name = str("")
