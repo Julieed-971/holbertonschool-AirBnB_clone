@@ -44,7 +44,7 @@ class FileStorage():
                        'User': user,
                        'State': state,
                        'City': city,
-                       'Amenity': amenity, 
+                       'Amenity': amenity,
                        'Place': place,
                        'Review': review
                        }

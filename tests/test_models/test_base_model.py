@@ -28,7 +28,8 @@ class TestBaseModel(unittest.TestCase):
         my_model = BaseModel()
         my_model.name = "My First Model"
         my_model.my_number = 89
-        self.assertEqual(str(my_model), "[BaseModel] ({}) {}".format(my_model.id, my_model.__dict__))
+        self.assertEqual(str(my_model), "[BaseModel] ({}) {}".format
+                         (my_model.id, my_model.__dict__))
 
     def test__init__(self):
         """Test BaseModel instantiation"""
