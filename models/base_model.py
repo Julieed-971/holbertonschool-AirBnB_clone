@@ -43,3 +43,8 @@ class BaseModel():
         dict_cpy['created_at'] = self.created_at.isoformat()
         dict_cpy['updated_at'] = self.updated_at.isoformat()
         return dict_cpy
+        dict_cpy = self.__dict__.copy()
+        dict_cpy['__class__'] = self.__class__.__name__
+        dict_cpy['created_at'] = self.created_at.isoformat()
+        dict_cpy['updated_at'] = self.updated_at.isoformat()
+        return dict_cpy
