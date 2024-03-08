@@ -67,8 +67,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        else:
-            cls_name = arg.split()
+        cls_name = arg.split()
 
         if cls_name[0] not in dict_module:
             print("** class doesn't exist **")
@@ -78,16 +77,15 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        else:
-            # retrieve the instance from storage with class_name.id
-            key = f"{cls_name[0]}.{cls_name[1]}"
-            # if instance found, print string representation with __str__
-            if key not in storage.all():
-                print("** no instance found **")
-                return
-            else:
-                del storage.all()[key]
-            storage.save
+        # retrieve the instance from storage with class_name.id
+        key = f"{cls_name[0]}.{cls_name[1]}"
+        # if instance found, print string representation with __str__
+        if key not in storage.all():
+            print("** no instance found **")
+            return
+
+        del storage.all()[key]
+        storage.save()
 
     def do_all(self, arg):
         """Prints all string representation of all instances"""
