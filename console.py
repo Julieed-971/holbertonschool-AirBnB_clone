@@ -113,7 +113,6 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         """
-        from models.engine.file_storage import loaded_storage
         if not arg:
             print("** class name missing **")
             return
