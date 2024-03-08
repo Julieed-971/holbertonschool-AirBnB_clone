@@ -14,12 +14,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """Class for the console module"""
     prompt = '(hbnb) '
-    dict_module = None
-
-    def __init__(self):
-        """Instantiate class HBNBCommand"""
-        super().__init__()
-        self.dict_module = FileStorage().reload()
+    dict_module = FileStorage().reload()
 
     def do_create(self, arg):
         """Create a new instance of BaseModel"""
