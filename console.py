@@ -4,8 +4,6 @@ Console module for the HBNB project.
 """
 
 import cmd
-import os
-import json
 
 from models.engine.file_storage import dict_module
 from models.engine.file_storage import loaded_storage
@@ -128,7 +126,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
         key = f"{arg_name[0]}.{arg_name[1]}"
-        if key not in loaded_storage:
+        if key not in storage.all():
             print("** no instance found **")
             return
         if len(arg_name) < 3:
