@@ -4,17 +4,14 @@ Console module for the HBNB project.
 """
 
 import cmd
-import json
 
-from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
 from models import storage
+from models.engine.file_storage import dict_module
 
 
 class HBNBCommand(cmd.Cmd):
     """Class for the console module"""
     prompt = '(hbnb) '
-    dict_module = FileStorage().reload()
 
     def do_create(self, arg):
         """Create a new instance of BaseModel"""
@@ -24,11 +21,11 @@ class HBNBCommand(cmd.Cmd):
         else:
             cls_name = arg.split()[0]
 
-            if cls_name not in self.dict_module:
+            if cls_name not in dict_module:
                 print("** class doesn't exist **")
                 pass
             else:
-                module = self.dict_module[cls_name]
+                module = dict_module[cls_name]
                 cls_obj = getattr(module, cls_name)
                 cls_inst = cls_obj()
 
@@ -44,7 +41,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             args = arg.split()
 
-        if args[0] not in self.dict_module:
+        if args[0] not in dict_module:
             print("** class doesn't exist **")
             return
 
@@ -74,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             args = arg.split()
 
-        if args[0] not in self.dict_module:
+        if args[0] not in dict_module:
             print("** class doesn't exist **")
             return
 
@@ -100,7 +97,7 @@ class HBNBCommand(cmd.Cmd):
         # Find the base case
         cls_name = arg.split()
         if len(cls_name) == 1:
-            if cls_name[0] not in self.dict_module:
+            if cls_name[0] not in dict_module:
                 print("** class doesn't exist **")
                 return
             else:
