@@ -8,5 +8,5 @@ from models.state import State
 class City(BaseModel):
     """Class to create a city"""
 
-    state_id = State.id
+    state_id = BaseModel.id
     name = ""
