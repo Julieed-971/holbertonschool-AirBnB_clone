@@ -54,8 +54,10 @@ class FileStorage():
                 loaded_storage = json.load(f)
 
             for key, dict_attr in loaded_storage.items():
-                class_name = dict_attr['__class__']
-
+                try:
+                    class_name = dict_attr['__class__']
+                except TypeError:
+                    continue
                 if class_name in dict_module:
                     get_module = dict_module[class_name]
 

@@ -20,4 +20,3 @@ class TestUser(unittest.TestCase):
         self.assertIsInstance(my_place.latitude, float)
         self.assertIsInstance(my_place.longitude, float)
         self.assertIsInstance(my_place.amenity_ids, list)
-        
