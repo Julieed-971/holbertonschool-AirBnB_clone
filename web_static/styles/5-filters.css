@@ -1,5 +1,4 @@
-
-.container .filters {
+.filters {
 	display: flex;
 	justify-content: space-evenly;
 	background-color: white;
@@ -10,7 +9,7 @@
 	gap: 20px 20px;
 }
 
-.container .filters button {
+button {
 	order: 3;
 	display: flex;
 	align-items: center;
@@ -22,16 +21,14 @@
 	width: 20%;
 	border: 0;
 	border-radius: 4px;
-	right: 30px;
-	float: right;
 	margin: 11px 30px auto auto;
 }
 
-.container .filters button:hover {
+button:hover {
 	opacity: 90%;
 }
 
-.container .filters .locations {
+.locations {
 	order: 1;
 	display: flex;
 	justify-content: center;
@@ -45,7 +42,7 @@
 	margin-left: 50px;
 }
 
-.container .filters .amenities {
+.amenities {
 	order: 2;
 	display: flex;
 	justify-content: center;
