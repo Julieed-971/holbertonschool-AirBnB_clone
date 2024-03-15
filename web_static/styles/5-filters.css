@@ -1,0 +1,79 @@
+
+.container .filters {
+	display: flex;
+	justify-content: space-evenly;
+	background-color: white;
+	height: 70px;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	gap: 20px 20px;
+}
+
+.container .filters button {
+	order: 3;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	background-color: #FF5A5F;
+	color: #FFFFFF;
+	height: 48px;
+	width: 20%;
+	border: 0;
+	border-radius: 4px;
+	right: 30px;
+	float: right;
+	margin: 11px 30px auto auto;
+}
+
+.container .filters button:hover {
+	opacity: 90%;
+}
+
+.container .filters .locations {
+	order: 1;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	height: 100%;
+	width: 25%;
+	border-right: 1px solid #DDDDDD;
+	gap: 5px 5px;
+	flex: 0 1 auto;
+	margin-left: 50px;
+}
+
+.container .filters .amenities {
+	order: 2;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	height: 100%;
+	width: 25%;
+	gap: 5px 5px;
+	flex: 2 1 auto;
+	margin-left: 20px;
+}
+
+h3 {
+	display: flex;
+	justify-content:flex-start;
+	align-content: flex-start;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+}
+
+h4 {
+	display: flex;
+	justify-content: flex-start;
+	align-content:flex-start;
+	font-weight: 400;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+}
+
