@@ -6,7 +6,6 @@
 	width: 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
-	gap: 20px 20px;
 }
 
 button {
@@ -46,7 +45,7 @@ button:hover {
 	width: 25%;
 	gap: 5px 5px;
 	flex: 2 1 auto;
-	margin-left: 30px;
+	margin-left: 40px;
 }
 
 h3 {
