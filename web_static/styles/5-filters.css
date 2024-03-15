@@ -1,5 +1,6 @@
 .filters {
 	display: flex;
+	align-items: center;
 	background-color: white;
 	height: 70px;
 	width: 100%;
@@ -28,20 +29,16 @@ button:hover {
 }
 
 .locations {
-	order: 1;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
+	display: grid;
+	place-content: center;
 	height: 100%;
 	width: 25%;
 	border-right: 1px solid #DDDDDD;
+	margin-left: 40px;
 	gap: 5px 5px;
-	flex: 0 1 auto;
-	margin-left: 50px;
 }
 
 .amenities {
-	order: 2;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
@@ -49,7 +46,7 @@ button:hover {
 	width: 25%;
 	gap: 5px 5px;
 	flex: 2 1 auto;
-	margin-left: 20px;
+	margin-left: 30px;
 }
 
 h3 {
