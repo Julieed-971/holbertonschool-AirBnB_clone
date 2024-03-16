@@ -28,23 +28,16 @@ button:hover {
 }
 
 .locations {
-	display: grid;
-	place-content: center;
-	height: 100%;
-	width: 25%;
 	border-right: 1px solid #DDDDDD;
-	margin-left: 40px;
-	gap: 5px 5px;
 }
 
-.amenities {
+.locations, .amenities {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	height: 100%;
 	width: 25%;
 	gap: 5px 5px;
-	flex: 2 1 auto;
 	margin-left: 40px;
 }
 
