@@ -62,6 +62,8 @@ Before starting, please fork or clone the repository `AirBnB_clone` from your pa
 
 ### Task 0. Inline styling
 
+<img src="./images/0-index.png" alt="Screenshot of the 0-index.html page" width="160" height="40">
+
 ### Task 1. Head styling
 
 ### Task 2. CSS files
