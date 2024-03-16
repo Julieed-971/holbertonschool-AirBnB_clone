@@ -66,19 +66,39 @@ Before starting, please fork or clone the repository `AirBnB_clone` from your pa
 
 ### Task 1. Head styling
 
+<img src="./images/1-index.png" alt="Screenshot of the 1-index.html page">
+
 ### Task 2. CSS files
+
+<img src="./images/2-index.png" alt="Screenshot of the 2-index.html page">
 
 ### Task 3. Zoning done
 
+<img src="./images/3-index.png" alt="Screenshot of the 3-index.html page">
+
 ### Task 4. Search
+
+<img src="./images/4-index.png" alt="Screenshot of the 4-index.html page">
 
 ### Task 5. More filters
 
+<img src="./images/5-index.png" alt="Screenshot of the 5-index.html page">
+
 ### Task 6. It's (h)over
+
+<img src="./images/6-index-1.png" alt="Screenshot of the 6-index.html page">
+<img src="./images/6-index-2.png" alt="Screenshot of the 6-index.html page">
 
 ### Task 7. Display results
 
+<img src="./images/7-index.png" alt="Screenshot of the 7-index.html page">
+
 ### Task 8. More details
+
+<img src="./images/8-index-0.png" alt="Screenshot of the 8-index.html page">
+<img src="./images/8-index-1.png" alt="Screenshot of the 8-index.html page">
+<img src="./images/8-index-2.png" alt="Screenshot of the 8-index.html page">
+<img src="./images/8-index-3.png" alt="Screenshot of the 8-index.html page">
 
 ## Author
 
